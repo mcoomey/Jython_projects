@@ -1,0 +1,62 @@
+#--------------------------------------------------------------
+# This function paints a filled circle of radius R
+# and color NewColor on the Canvas, using <Xc,Yc> as
+# the coordinates of the center of the circle.
+#--------------------------------------------------------------
+def addCircleFilled (Canvas,Xc,Yc,R,NewColor=black):
+ addOvalFilled(Canvas, int(Xc-R), int(Yc-R), int(R+R), int(R+R), NewColor)
+ return 
+
+def addCircle (Canvas,Xc,Yc,R,NewColor=black):
+ addOval(Canvas, int(Xc-R), int(Yc-R), int(R+R), int(R+R), NewColor)
+ return 
+
+
+
+
+def Rectangle (Canvas, X, Y, Width, Height, NewColor):
+    print "**In Rectangle: X=", str(X), " and Y=", str(Y)
+    addRectFilled(Canvas, X, Y, Width, Height, NewColor)
+    addRect(Canvas, X, Y, Width, Height, black)
+    return
+
+def Circle (Canvas, Xc, Yc, R, NewColor):
+    print "**In Circle: Xc=", str(Xc), " and Yc=", str(Yc)
+    addCircleFilled(Canvas, Xc, Yc, R, NewColor)
+    addCircle(Canvas, Xc, Yc, R, black)
+    return
+
+def Wheel (Canvas, Xc, Yc):
+    print "**In Wheel: Xc=", str(Xc), " and Yc=", str(Yc)
+    Circle(Canvas, Xc, Yc, 40, black)
+    Circle(Canvas, Xc, Yc, 20, makeColor(255,120,120))
+    return
+
+def Window (Canvas, X, Y):
+    print "**In Window: X=", str(X), " and Y=", str(Y)
+    Rectangle(Canvas, X, Y, 70, 70, makeColor(192,192,192))
+    Rectangle(Canvas, X+10, Y+10, 50, 50, cyan)
+    return
+    
+def Cab (Canvas, X, Y):
+    print "**In Cab: X=", str(X), " and Y=", str(Y)
+    Rectangle(Canvas, X, Y, 200, 110, green)
+    Window(Canvas, X+20, Y+20)
+    Window(Canvas, X+110, Y+20)
+    return
+    
+def Car (Canvas, X, Y):
+    print "**In Car: X=", str(X), " and Y=", str(Y)
+    Wheel(Canvas, X+80, Y+100)
+    Wheel(Canvas, X+280, Y+100)
+    Circle(Canvas, X, Y+40, 20, red)
+    Circle(Canvas, X+360, Y+40, 20, makeColor(200,200,200))
+    Rectangle(Canvas, X, Y, 360, 100, green)
+    Cab(Canvas,X+80, Y-110)
+    return
+    
+def Main():
+    Canvas = makeEmptyPicture(800,600)
+    Car(Canvas, 50, 130)
+    repaint(Canvas)
+    return

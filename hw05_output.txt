@@ -1,0 +1,20 @@
+>>> Main()
+**In Car: X= 50  and Y= 130
+**In Wheel: Xc= 130  and Yc= 230
+**In Circle: Xc= 130  and Yc= 230
+**In Circle: Xc= 130  and Yc= 230
+**In Wheel: Xc= 330  and Yc= 230
+**In Circle: Xc= 330  and Yc= 230
+**In Circle: Xc= 330  and Yc= 230
+**In Circle: Xc= 50  and Yc= 170
+**In Circle: Xc= 410  and Yc= 170
+**In Rectangle: X= 50  and Y= 130
+**In Cab: X= 130  and Y= 20
+**In Rectangle: X= 130  and Y= 20
+**In Window: X= 150  and Y= 40
+**In Rectangle: X= 150  and Y= 40
+**In Rectangle: X= 160  and Y= 50
+**In Window: X= 240  and Y= 40
+**In Rectangle: X= 240  and Y= 40
+**In Rectangle: X= 250  and Y= 50
+>>> 

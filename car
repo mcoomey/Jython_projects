@@ -1,0 +1,60 @@
+def addCircle(Canvas, Xc, Yc, R, NewColor):
+    addOval(Canvas, Xc-R, Yc-R, 2*R+1, 2*R+1, NewColor)
+    return
+    
+def addCircleFilled(Canvas, Xc, Yc, R, NewColor):
+    addOvalFilled(Canvas, Xc-R, Yc-R, 2*R+1, 2*R+1, NewColor)
+    return
+
+
+
+
+
+def Car (Canvas, X, Y, NewColor):
+
+    def Wheel (Canvas, X, Y):
+        addCircleFilled(Canvas, X, Y, 18, black)
+        addCircleFilled(Canvas, X, Y, 8, white)
+        return    
+
+    def Body (Canvas, X, Y, NewColor):
+        addRectFilled(Canvas, X, Y, 110, 40, NewColor)
+        return
+    
+    def Window (Canvas, X, Y):
+        addRectFilled(Canvas, X, Y, 20, 20, cyan)
+        addRect(Canvas,X, Y, 20, 20, black)
+        return    
+    
+    def Cab (Canvas, X, Y, NewColor):
+        addRectFilled(Canvas, X, Y, 70, 30, NewColor)
+        Window(Canvas, X+10, Y+5)
+        Window(Canvas, X+40, Y+5)
+        return   
+
+    Body (Canvas, X-30, Y-40, NewColor)
+    Cab (Canvas, X, Y-65, NewColor)
+    Wheel(Canvas, X-5, Y)
+    Wheel(Canvas, X+55, Y)   
+    return
+    
+import time    
+    
+def Main():
+    Canvas = makeEmptyPicture(800,600)
+    show(Canvas)
+    X = getWidth(Canvas) / 2
+    Y = getHeight(Canvas) / 2
+    Xd = 1
+    Yd = 1
+    while (True):
+        setAllPixelsToAColor(Canvas,white)
+        Car (Canvas, X, Y, red)
+        X = X + Xd
+        Y = Y + Yd
+        if (X > getWidth(Canvas)-80) or (X < 30): Xd = -Xd
+        if (Y > getHeight(Canvas)-20) or (Y < 70): Yd = -Yd
+        repaint(Canvas)
+        time.sleep(0.01)
+    return
+    
